@@ -19,7 +19,7 @@ def send_number():
         return jsonify({'error': f'Number {value} is not in 0..N, where N - natural'}), 400
 
     value = int(value)
-    prev_value = value - 1
+    prev_value = value + 1
 
     existing_number = db.session.execute(
         select(ProcessedNumbers).where(
@@ -32,6 +32,8 @@ def send_number():
             ProcessedNumbers.value == prev_value
         )
     ).all()
+    print(too_small_number)
+    # print(prev_value)
 
     if existing_number:
         logging.error(f'Number {value} already processed')
@@ -43,6 +45,6 @@ def send_number():
     db.session.add(ProcessedNumbers(value=value, adding_date=datetime.now()))
     db.session.commit()
 
-    return jsonify({'success': f'{value + 1}'}), 200
+    return jsonify({f'{value + 1}'}), 200
 
 
