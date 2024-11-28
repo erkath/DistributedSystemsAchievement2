@@ -3,7 +3,7 @@ from datetime import datetime
 from app.initial import app
 
 from flask import jsonify, request
-from sqlalchemy import select, update
+from sqlalchemy import select
 from app.models import ProcessedNumbers, db
 import logging
 
@@ -32,7 +32,7 @@ def send_number():
             ProcessedNumbers.value == prev_value
         )
     ).all()
-    print(too_small_number)
+    # print(too_small_number)
     # print(prev_value)
 
     if existing_number:
