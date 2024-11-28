@@ -15,6 +15,12 @@ python local_start.py
 #### Требования:
 Python 3.8 и выше.
 
+#### Инициализация базы данных
+```bash
+flask db init
+flask db upgrade
+```
+
 #### Примеры тестирования
 
 ```bash
