@@ -1,3 +1,5 @@
+import logging
+
 from flask_babel import Babel
 from flask_migrate import Migrate
 
@@ -14,3 +16,11 @@ def get_locale():
 
 babel = Babel(app)
 babel.init_app(app, locale_selector=get_locale)
+
+logger = logging.getLogger()
+file_handler = logging.FileHandler('app.log')
+file_handler.setLevel(logging.ERROR)
+logger.addHandler(file_handler)
+
+
+
