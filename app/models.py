@@ -20,3 +20,4 @@ class ProcessedNumbers(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     adding_date = db.Column(db.DateTime)
+    value = db.Column(db.Integer, nullable=False)
