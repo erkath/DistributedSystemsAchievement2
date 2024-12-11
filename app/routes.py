@@ -45,6 +45,6 @@ def send_number():
     db.session.add(ProcessedNumbers(value=value, adding_date=datetime.now()))
     db.session.commit()
 
-    return jsonify({f'{value + 1}'}), 200
+    return jsonify(f'{value + 1}'), 200
 
 
