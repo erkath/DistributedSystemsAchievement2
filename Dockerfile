@@ -8,9 +8,8 @@ WORKDIR /achievement2
 COPY requirements.txt /achievement2
 
 # Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
-
-RUN pip freeze
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip freeze
 
 # Копируем все файлы приложения в контейнер
 #COPY . .
@@ -20,7 +19,7 @@ COPY . /achievement2
 EXPOSE 5000
 
 # База данных
-RUN rm instance/database.db; flask db init; flask db upgrade
+#RUN rm instance/database.db; flask db init; flask db upgrade
 
 # Указываем команду для запуска приложения
 CMD ["python", "local_start.py"]

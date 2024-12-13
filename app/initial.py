@@ -3,6 +3,8 @@ import logging
 
 from config import Config
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
+
 
 def create_app():
     local_app = Flask(__name__)
