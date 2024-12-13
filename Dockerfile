@@ -4,6 +4,9 @@ FROM python:3.9-slim
 # Устанавливаем рабочую директорию
 WORKDIR /achievement2
 
+RUN apt-get update -y && \
+    apt-get install -y pkg-config python3-dev default-libmysqlclient-dev build-essential
+
 # Скачиваем/обновляем необходимые библиотеки для проекта
 COPY requirements.txt /achievement2
 
