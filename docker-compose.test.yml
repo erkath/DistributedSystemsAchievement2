@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SQLALCHEMY_DATABASE_URI_PASS: "achievement2"
+      SQLALCHEMY_DATABASE_URI_USER: "achievement2"
+      SQLALCHEMY_DATABASE_URI_HOST: "mariadb"
+      SQLALCHEMY_DATABASE_URI_DB: "achievement2"
+    ports:
+      - 5000:5000
+
+  mariadb:
+    image: mariadb:11.6.2-ubi
+    environment:
+      MARIADB_ROOT_PASSWORD: achievement2
+      MARIADB_USER: achievement2
+      MARIADB_PASSWORD: achievement2
+      MARIADB_DATABASE: achievement2
+
+  adminer:
+    image: adminer:4.8.1-standalone
+    ports:
+      - 8998:8080
