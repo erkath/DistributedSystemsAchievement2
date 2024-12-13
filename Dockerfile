@@ -18,10 +18,6 @@ COPY . /achievement2
 # Пробрасываем порт
 EXPOSE 5000
 
-# База данных
-#RUN rm instance/database.db; flask db init; flask db upgrade
-
-# Указываем команду для запуска приложения
-CMD ["python", "local_start.py"]
-
 LABEL authors="ryohoren"
+
+ENTRYPOINT ["/bin/bash", "/achievement2/scripts/entrypoint.sh"]
